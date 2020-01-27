@@ -31,7 +31,7 @@ module.exports = (app, dbs) => {
   });
 
   app.post('/post', (req, res) => {
-    dbs.Blog.collection('BlogPosts').insertOne(validate(req.body), (err, docs) => {
+    dbs.Blog.collection('BlogPosts').insert(validate(req.body), (err, docs) => {
       if (err) {
         console.log(err);
         res.error(err);
