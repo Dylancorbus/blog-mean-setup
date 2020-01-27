@@ -9,6 +9,9 @@ module.exports = (app, dbs) => {
   }
 
   app.get('/allBlogs', (req, res) => {
+   res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     dbs.Blog.collection('BlogPosts').find({}).toArray((err, docs) => {
       if (err) {
         console.log(err)
@@ -20,6 +23,9 @@ module.exports = (app, dbs) => {
   });
 
   app.get('/blog/:blogId', (req, res) => {
+res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     dbs.Blog.collection('BlogPosts').find({id: req.params.blogId}).toArray((err, docs) => {
       if (err) {
         console.log(err);
@@ -31,6 +37,9 @@ module.exports = (app, dbs) => {
   });
 
   app.post('/post', (req, res) => {
+res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     dbs.Blog.collection('BlogPosts').insertOne(validate(req.body), (err, docs) => {
       if (err) {
         console.log(err);
@@ -42,6 +51,9 @@ module.exports = (app, dbs) => {
   });
 
   app.post('/email', (req, res) => {
+res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     utils.send(req.body);
     res.json(docs);
   });

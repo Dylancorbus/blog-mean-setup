@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/dylancorbus/blog-mean-setup#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.15.2",
     "mongodb": "^3.5.2",
     "nodemailer": "^6.4.2"
