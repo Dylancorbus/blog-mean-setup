@@ -19,7 +19,7 @@ module.exports = (data) => {
     //set the text to the message
     mailOptions.html = JSON.stringify(data);
     //set to
-    mailOptions.to = 'dylancorbus@outlook.com';
+    mailOptions.to = username;
     //set subject
     mailOptions.subject = 'New contact request';
     transporter.sendMail(mailOptions, (error, info) => {
